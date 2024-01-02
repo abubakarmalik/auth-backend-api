@@ -10,12 +10,7 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-
-const corsOptions = {
-  origin: 'https://custom-auth-client.netlify.app',
-};
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.use(cors());
 
 app.use('/', (req, res) => {
   res.json({ message: 'Auth APi' });
@@ -25,5 +20,5 @@ app.use('/api/', dashboardRoutes);
 
 const port = process.env.PORT;
 app.listen(port, () => {
-  console.log(`server is running on  http://localhost:${port}/`);
+  console.log(`server is running on  port ${port}/`);
 });
