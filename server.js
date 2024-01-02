@@ -15,6 +15,7 @@ const corsOptions = {
   origin: 'https://custom-auth-client.netlify.app',
 };
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.use('/', (req, res) => {
   res.json({ message: 'Auth APi' });
