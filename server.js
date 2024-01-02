@@ -10,7 +10,11 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://custom-auth-client.netlify.app',
+};
+app.use(cors(corsOptions));
 
 app.use('/', (req, res) => {
   res.json({ message: 'Auth APi' });
